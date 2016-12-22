@@ -2,6 +2,8 @@
 
 ### Active Directory Section ##
 
+# Select 1 for winbind or 4 for SSSD
+export ADJOIN_TYPE=4
 # Account needs rights to join computer accounts and change their passwords.
 # Strongly suggest looking up how to do this with minimum rights
 export ADJOIN_USERNAME=Joiner
