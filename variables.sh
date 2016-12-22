@@ -45,7 +45,8 @@ export PVS_USERNAME=svcPVS
 export PVS_PASSWORD=password
 export PVS_PORT=54321
 export PVS_STORE=Store
-export PVS_COLLECTION="Linux Shared Apps"
+# Make Collection one word since pvs-imager has issues with spaces
+export PVS_COLLECTION=LinuxApps
 export PVS_DEVICENAME=adrhelapp0
 export PVS_VDISKNAME=adrhelapp
 
