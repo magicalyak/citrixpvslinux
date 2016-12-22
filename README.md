@@ -61,3 +61,16 @@ rpm -Uvh ~/pvs_RED_HAT_7.12.0_BETA5_9201_x86_64.rpm
 
 Once the image is done you can clone the VM and remove the OS drive
 add the new VMs to PVS by MAC address and set to boot from PXE
+
+# Troubleshooting
+Try the following for AD issues:
+rm -f /etc/krb5.keytab
+net ads leave $REALM -U $domain-administrator
+Delete the machine catalog and delivery group on the DDC
+Execute /opt/Citrix/VDA/sbin/ctxinstall.sh
+Create the machine catalog and delivery group on the DDC
+
+# Citrix Info
+So PVS may handle winbind without the script if this is true
+set the variable $ADJOIN_TYPE to 1 and the scripts should work
+you do NOT need the ctxvdaoneshot service for winbind
