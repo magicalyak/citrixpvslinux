@@ -1,7 +1,13 @@
 #!/bin/bash
 . ./variables.sh
 
-# set vdaoneshot
+# removing subscription-manager and cleaning yum
+echo "Cleaning up yum and stuf...."
+yum clean all
+subscription-manager unregister
+subscription-manager remove --all
+
+# set vdaoneshot to run on boot
 systemctl enable ctxvdaoneshot
 
 # create the disk
