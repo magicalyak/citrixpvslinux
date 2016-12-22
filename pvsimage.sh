@@ -30,7 +30,7 @@ fi
 
 # create the disk
 echo "Creating PVS image...."
-pvs-imager -C -a ${PVS_IP} -u ${PVS_USERNAME} -p ${PVS_PASSWORD} -d ${ADJOIN_SHORT} -P ${PVS_PORT} -S ${PVS_STORE} -c ${PVS_COLLECTION} -n ${PVS_DEVICENAME} -v ${PVS_VDISKNAME} -D ${DISKDEV}
+pvs-imager -C -a ${PVS_IP} -u ${PVS_USERNAME} -p ${PVS_PASSWORD} -d ${ADJOIN_SHORT} -P ${PVS_PORT} -S "${PVS_STORE}" -c "${PVS_COLLECTION}" -n ${PVS_DEVICENAME} -v ${PVS_VDISKNAME} -D ${DISKDEV}
 
 if [ "$ADJOIN_TYPE" == 4 ]; then
 	echo "If something went wrong please run: systemctl disable ctxvdaoneshot"
