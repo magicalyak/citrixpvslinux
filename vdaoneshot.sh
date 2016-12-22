@@ -21,12 +21,21 @@ echo '#!/bin/bash' > /usr/local/sbin/ctxvdaoneshot
 chmod 700 /usr/local/sbin/ctxvdaoneshot
 
 cat >>/usr/local/sbin/ctxvdaoneshot <<EOL
+echo "Checking for previous AD Join...."
+if [ -f /etc/krb5.keystore ]
+  then
+    echo "Found existing join, removing from domain and resetting..."
+    net ads leave -U ${ADJOIN_USERNAME}%${ADJOIN_PASSWORD}
+    rm -rf /etc/krb5.keytab
+fi
+echo "Looks good, joining domain...."
 net ads join ${ADJOIN_RELAM} -U ${ADJOIN_USERNAME}%${ADJOIN_PASSWORD} createcomputer=${ADJOIN_OU}
 authconfig --enablesssd --enablesssdauth --enablemkhomedir --update
 systemctl start sssd
 systemctl enable sssd
 systemctl start ctxhdx ctxvda
 systemctl enable ctxhdx ctxvda
+echo "Configuring Citrix VDA Agent...."
 export CTX_XDL_SUPPORT_DDC_AS_CNAME=Y
 export CTX_XDL_DDC_LIST=${XDDC_FQDN}
 export CTX_XDL_VDA_PORT=${XDDC_PORT}
@@ -42,4 +51,3 @@ export CTX_XDL_START_SERVICE=Y
 sudo -E /opt/Citrix/VDA/sbin/ctxsetup.sh
 systemctl disable ctxvdaoneshot.service
 EOL
-
