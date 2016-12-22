@@ -8,7 +8,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/sysconfig/selinux
 
 # Get the CA Cert from the DC and add it to the trust
 echo "Adding CA Trust...."
-openssl s_client -showcerts -connect ${ADJOIN_CA}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM > /etc/pki/ca-trust/anchors/${ADJOIN_CA}.pem
+openssl s_client -showcerts -connect ${ADJOIN_CA}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM > /etc/pki/ca-trust/source/anchors/${ADJOIN_CA}.pem
 update-ca-trust extract
 
 # Setup PVS Cache Disk
