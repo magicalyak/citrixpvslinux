@@ -20,6 +20,8 @@ export ADJOIN_SHORT=AD
 # Domain Controller
 export ADJOIN_DC=addc01.ad.gamull.com
 
+# If CA is different change below otherwise leave as is
+export ADJOIN_CA=$( echo "${ADJOIN_DC}" )
 
 ## XenDesktop Section ##
 
