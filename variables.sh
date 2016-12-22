@@ -12,7 +12,7 @@ export ADJOIN_OU=Acworth/VDI
 
 # REALM needs to be in CAPS
 export ADJOIN_REALM=AD.GAMULL.COM
-export ADJOIN_DOMAIN=$( echo "$ADJOIN_REALM" | tr '[:upper:]' '[:lower:]' )
+export ADJOIN_DOMAIN=$( echo "${ADJOIN_REALM,,}" )
 
 # CAPS here also but probably doesn't matter
 export ADJOIN_SHORT=AD
