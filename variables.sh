@@ -3,7 +3,7 @@
 ### Active Directory Section ##
 
 # Select 1 for winbind or 4 for SSSD
-export ADJOIN_TYPE=4
+export ADJOIN_TYPE=1
 # Select Y for VDI only or N for Shared
 export ADJOIN_VDI=N
 # Account needs rights to join computer accounts and change their passwords.
@@ -45,9 +45,9 @@ export PVS_USERNAME=svcPVS
 export PVS_PASSWORD=password
 export PVS_PORT=54321
 export PVS_STORE=Store
-export PVS_COLLECTION=Linux
-export PVS_DEVICENAME=adrhelwork0
-export PVS_VDISKNAME=adrhelworkvdi
+export PVS_COLLECTION="Linux Shared Apps"
+export PVS_DEVICENAME=adrhelapp0
+export PVS_VDISKNAME=adrhelapp
 
 ## Disk Device Section ##
 
