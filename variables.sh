@@ -4,6 +4,8 @@
 
 # Select 1 for winbind or 4 for SSSD
 export ADJOIN_TYPE=4
+# Select Y for VDI only or N for Shared
+export ADJOIN_VDI=N
 # Account needs rights to join computer accounts and change their passwords.
 # Strongly suggest looking up how to do this with minimum rights
 export ADJOIN_USERNAME=Joiner

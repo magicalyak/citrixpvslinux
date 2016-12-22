@@ -1,5 +1,9 @@
 #!/bin/bash
+
 . ./variables.sh
+if [ "$ADJOIN_TYPE" == 4 ]; then
+echo "Creating oneshot service...."
+
 cat >/etc/systemd/system/ctxvdaoneshot.service <<EOL
 
 [Unit]
@@ -51,3 +55,4 @@ export CTX_XDL_START_SERVICE=Y
 sudo -E /opt/Citrix/VDA/sbin/ctxsetup.sh
 systemctl disable ctxvdaoneshot.service
 EOL
+fi
