@@ -18,6 +18,7 @@ if [ ! -z "$TGTDEV" ]
   then
     echo "adding PVS Cache Disk using XFS..."
 
+if [ ! -b ${TGTDEV}1 ]; then
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk $TGTDEV
   o # clear the in memory partition table
   n # new partition
@@ -30,4 +31,5 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk $TGTDEV
   q # and we're done
 EOF
     mkfs.xfs -L 'PVS_Cache' ${TGTDEV}1
+fi
 fi
