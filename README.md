@@ -42,7 +42,7 @@ cd ~/citrixpvslinux
 copy the citrix vda rpm and install it (might as well copy the PVS Agent also (it's on the PVS 7.12 ISO))
 ```
 yum install -y ImageMagick motif foomatic-filters
-rpm -Uvh ~/XenDesktopVDA-7.12.0.375-1.el7_2.x86_64.rpm
+rpm -Uvh ~/XenDesktopVDA-7.14.0.400-1.el7_2.x86_64.rpm
 ```
 
 fix the display issue and prep the AD Join
